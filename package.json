@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:tunnel": "node scripts/ngrok-tunnel.js",
+    "tunnel": "node scripts/tunnel-only.js",
     "build": "next build",
+    "build:netlify": "NETLIFY=true next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "npm run build && npm run start"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
@@ -26,6 +30,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.2.1",
+    "ngrok": "^5.0.0-beta.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
