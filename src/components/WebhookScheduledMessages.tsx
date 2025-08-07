@@ -159,7 +159,7 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
 
             {messages.length === 0 ? (
                 <div className="text-center py-8">
-                    <Clock className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                    <Clock className="w-12 h-12 text-black mx-auto mb-3" />
                     <p className="text-black">No webhook scheduled messages found</p>
                     <p className="text-sm text-black mt-1">
                         Messages scheduled via webhook endpoints will appear here

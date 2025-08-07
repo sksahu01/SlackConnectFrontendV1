@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Slack, ExternalLink } from 'lucide-react';
+import { Slack, ExternalLink, Send, Calendar } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { useNotifications } from '@/contexts/NotificationsContext';
 import apiClient from '@/lib/api';
@@ -46,11 +46,11 @@ const ConnectSlack: React.FC = () => {
             </div>
           </div>
 
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-black mb-2">
             Welcome to Slack Connect
           </h1>
 
-          <p className="text-gray-600 mb-8">
+          <p className="text-black mb-8">
             Send instant messages and schedule messages for later delivery to your Slack workspace.
           </p>
 
@@ -61,8 +61,8 @@ const ConnectSlack: React.FC = () => {
                 <div className="w-2 h-2 bg-green-600 rounded-full"></div>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-900">Send Instant Messages</p>
-                <p className="text-xs text-gray-600">Send messages immediately to any channel</p>
+                <p className="text-sm font-medium text-black">Send Instant Messages</p>
+                <p className="text-xs text-black">Send messages immediately to any channel</p>
               </div>
             </div>
 
@@ -71,8 +71,8 @@ const ConnectSlack: React.FC = () => {
                 <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-900">Schedule for Later</p>
-                <p className="text-xs text-gray-600">Schedule messages for future delivery</p>
+                <p className="text-sm font-medium text-black">Schedule for Later</p>
+                <p className="text-xs text-black">Schedule messages for future delivery</p>
               </div>
             </div>
 
@@ -81,8 +81,8 @@ const ConnectSlack: React.FC = () => {
                 <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-900">Manage Scheduled Messages</p>
-                <p className="text-xs text-gray-600">View and cancel scheduled messages</p>
+                <p className="text-sm font-medium text-black">Manage Scheduled Messages</p>
+                <p className="text-xs text-black">View and cancel scheduled messages</p>
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@ const ConnectSlack: React.FC = () => {
             onClick={handleConnect}
             loading={isConnecting}
             disabled={isConnecting}
-            className="w-full"
+            className="w-full mb-4"
             size="lg"
           >
             <Slack className="w-5 h-5 mr-2" />
@@ -100,8 +100,19 @@ const ConnectSlack: React.FC = () => {
             <ExternalLink className="w-4 h-4 ml-2" />
           </Button>
 
+          {/* Send or Schedule Message Button */}
+          <Button
+            onClick={() => router.push('/webhooks')}
+            className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-medium"
+            size="lg"
+          >
+            <Send className="w-5 h-5 mr-2" />
+            Send or Schedule a Message
+            <Calendar className="w-4 h-4 ml-2" />
+          </Button>
+
           {/* Security Note */}
-          <p className="text-xs text-gray-500 mt-4">
+          <p className="text-xs text-black mt-4">
             🔒 We only request permissions to read your channels and send messages.
             Your data is secure and never stored permanently.
           </p>
@@ -109,7 +120,7 @@ const ConnectSlack: React.FC = () => {
 
         {/* Additional Info */}
         <div className="mt-6 text-center">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-black">
             Need help? Check our{' '}
             <a href="#" className="text-blue-600 hover:text-blue-700 underline">
               setup guide

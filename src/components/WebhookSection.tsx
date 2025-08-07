@@ -38,13 +38,13 @@ const WebhookSection: React.FC<WebhookSectionProps> = ({ onMessageSent }) => {
                         </div>
                     </div>
                     <div className="flex items-center space-x-2">
-                        <span className="text-xs text-gray-500 bg-white px-2 py-1 rounded-full">
+                        <span className="text-xs text-black bg-white px-2 py-1 rounded-full">
                             No Auth Required
                         </span>
                         {isExpanded ? (
-                            <ChevronUp className="w-5 h-5 text-gray-400" />
+                            <ChevronUp className="w-5 h-5 text-black" />
                         ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-400" />
+                            <ChevronDown className="w-5 h-5 text-black" />
                         )}
                     </div>
                 </div>

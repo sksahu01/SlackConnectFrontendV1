@@ -130,7 +130,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Request Body:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "message": "Your message content here"
 }`}
@@ -138,7 +138,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Example Response:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "success": true,
   "message": "Message sent successfully"
@@ -162,7 +162,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Request Body:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "message": "Your message content",
   "scheduled_for": 1691520000
@@ -171,7 +171,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Example Response:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "success": true,
   "message": "Message scheduled successfully",
@@ -199,7 +199,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Request Body:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "webhook_url": "https://hooks.slack.com/...",
   "message": "Test message content"
@@ -208,7 +208,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Example Response:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "success": true,
   "message": "Webhook test sent successfully"
@@ -235,7 +235,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Example Response:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "success": true,
   "data": [
@@ -266,7 +266,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Request Body:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "message": "Updated message",
   "scheduled_for": 1691520000
@@ -275,7 +275,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Example Response:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "success": true,
   "message": "Message updated successfully"
@@ -302,7 +302,7 @@ export default function WebhooksPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-medium text-black mb-2">Example Response:</h4>
-                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
+                                                <pre className="bg-white p-3 rounded border text-sm overflow-x-auto text-black">
                                                     {`{
   "success": true,
   "message": "Message cancelled successfully"
@@ -317,7 +317,7 @@ export default function WebhooksPage() {
                                         <h3 className="text-lg font-semibold text-black mb-3">cURL Examples</h3>
                                         <div className="space-y-4">
                                             <div>
-                                                <h4 className="font-medium text-gray-700 mb-2">Send immediate message:</h4>
+                                                <h4 className="font-medium text-black mb-2">Send immediate message:</h4>
                                                 <pre className="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto">
                                                     {`curl -X POST https://slackconnectbackendv1.onrender.com/api/messages/webhook/send \\
   -H "Content-Type: application/json" \\
@@ -325,7 +325,7 @@ export default function WebhooksPage() {
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-700 mb-2">Schedule message:</h4>
+                                                <h4 className="font-medium text-black mb-2">Schedule message:</h4>
                                                 <pre className="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto">
                                                     {`curl -X POST https://slackconnectbackendv1.onrender.com/api/messages/webhook/schedule \\
   -H "Content-Type: application/json" \\
@@ -333,13 +333,13 @@ export default function WebhooksPage() {
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-700 mb-2">Get scheduled messages:</h4>
+                                                <h4 className="font-medium text-black mb-2">Get scheduled messages:</h4>
                                                 <pre className="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto">
                                                     {`curl -X GET https://slackconnectbackendv1.onrender.com/api/messages/webhook/scheduled`}
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-700 mb-2">Update scheduled message:</h4>
+                                                <h4 className="font-medium text-black mb-2">Update scheduled message:</h4>
                                                 <pre className="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto">
                                                     {`curl -X PUT https://slackconnectbackendv1.onrender.com/api/messages/webhook/scheduled/msg_123 \\
   -H "Content-Type: application/json" \\
@@ -347,7 +347,7 @@ export default function WebhooksPage() {
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-700 mb-2">Cancel scheduled message:</h4>
+                                                <h4 className="font-medium text-black mb-2">Cancel scheduled message:</h4>
                                                 <pre className="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto">
                                                     {`curl -X DELETE https://slackconnectbackendv1.onrender.com/api/messages/webhook/scheduled/msg_123`}
                                                 </pre>
