@@ -54,21 +54,21 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Slack className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-900">Slack Connect</h1>
-                <p className="text-sm text-gray-500">Message Scheduler</p>
+                <h1 className="text-lg font-semibold text-black">Slack Connect</h1>
+                <p className="text-sm text-black">Message Scheduler</p>
               </div>
 
               {/* Navigation Links */}
               <div className="hidden md:flex ml-8 space-x-4">
                 <a
                   href="/"
-                  className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-100 transition-colors"
+                  className="text-sm text-black hover:text-black px-3 py-2 rounded-md hover:bg-gray-100 transition-colors"
                 >
                   Dashboard
                 </a>
                 <a
                   href="/webhooks"
-                  className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-100 transition-colors flex items-center"
+                  className="text-sm text-black hover:text-black px-3 py-2 rounded-md hover:bg-gray-100 transition-colors flex items-center"
                 >
                   <Webhook className="w-4 h-4 mr-1" />
                   Webhooks

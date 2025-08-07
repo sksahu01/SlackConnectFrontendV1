@@ -136,14 +136,14 @@ const MessageForm: React.FC<MessageFormProps> = ({ onMessageSent }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">
+      <h2 className="text-lg font-semibold text-black mb-4">
         {isScheduled ? 'Schedule Message' : 'Send Message'}
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Channel Selection */}
         <div>
-          <label htmlFor="channel_id" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="channel_id" className="block text-sm font-medium text-black mb-2">
             Channel
           </label>
           <div className="relative">
@@ -168,7 +168,7 @@ const MessageForm: React.FC<MessageFormProps> = ({ onMessageSent }) => {
             <p className="mt-1 text-sm text-red-600">{errors.channel_id.message}</p>
           )}
           {selectedChannel && (
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-black">
               {selectedChannel.is_private ? 'Private channel' : 'Public channel'}
               {selectedChannel.is_general && ' • General channel'}
             </p>
@@ -177,7 +177,7 @@ const MessageForm: React.FC<MessageFormProps> = ({ onMessageSent }) => {
 
         {/* Message Content */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
             Message
           </label>
           <textarea
@@ -191,10 +191,10 @@ const MessageForm: React.FC<MessageFormProps> = ({ onMessageSent }) => {
             <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
           )}
           <div className="mt-1 flex justify-between">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-black">
               Supports Slack formatting (markdown, mentions, etc.)
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-black">
               {watch('message')?.length || 0}/4000
             </p>
           </div>
@@ -208,7 +208,7 @@ const MessageForm: React.FC<MessageFormProps> = ({ onMessageSent }) => {
             {...register('is_scheduled')}
             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
           />
-          <label htmlFor="is_scheduled" className="ml-2 block text-sm text-gray-900">
+          <label htmlFor="is_scheduled" className="ml-2 block text-sm text-black">
             Schedule for later
           </label>
         </div>
@@ -216,7 +216,7 @@ const MessageForm: React.FC<MessageFormProps> = ({ onMessageSent }) => {
         {/* Schedule Date/Time */}
         {isScheduled && (
           <div className="animate-in slide-in-from-top duration-200">
-            <label htmlFor="scheduled_for" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="scheduled_for" className="block text-sm font-medium text-black mb-2">
               Schedule Date & Time
             </label>
             <input

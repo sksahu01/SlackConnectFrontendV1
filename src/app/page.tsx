@@ -8,10 +8,14 @@ import Layout from '@/components/Layout';
 import MessageForm from '@/components/MessageForm';
 import ScheduledMessages from '@/components/ScheduledMessages';
 import WebhookSection from '@/components/WebhookSection';
+import Button from '@/components/ui/Button';
+import { Webhook, ExternalLink } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuth();
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const router = useRouter();
 
   // Show loading while checking authentication
   if (isLoading) {
@@ -34,11 +38,26 @@ export default function Home() {
       <div className="space-y-8">
         {/* Welcome Message */}
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold text-black mb-2">
             Welcome to Slack Connect
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-black">
             Send messages instantly or schedule them for later delivery
+          </p>
+        </div>
+
+        {/* Quick Access to Webhooks */}
+        <div className="text-center">
+          <Button
+            onClick={() => router.push('/webhooks')}
+            className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+          >
+            <Webhook className="w-5 h-5 mr-2" />
+            Open Full Webhook Interface
+            <ExternalLink className="w-4 h-4 ml-2" />
+          </Button>
+          <p className="text-sm text-black mt-2">
+            Access comprehensive webhook management and API documentation
           </p>
         </div>
 
@@ -62,10 +81,10 @@ export default function Home() {
 
         {/* Additional Info */}
         <div className="bg-blue-50 rounded-lg p-6 text-center">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+          <h3 className="text-lg font-semibold text-black mb-2">
             How It Works
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-blue-800">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-black">
             <div>
               <div className="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-2">
                 1

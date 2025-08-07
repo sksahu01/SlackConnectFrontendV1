@@ -113,11 +113,11 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
             case 'sent':
                 return 'text-green-600 bg-green-100';
             case 'cancelled':
-                return 'text-gray-600 bg-gray-100';
+                return 'text-black bg-gray-100';
             case 'failed':
                 return 'text-red-600 bg-red-100';
             default:
-                return 'text-gray-600 bg-gray-100';
+                return 'text-black bg-gray-100';
         }
     };
 
@@ -128,7 +128,7 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
                     <div className="bg-purple-100 p-2 rounded-lg mr-3">
                         <Webhook className="w-5 h-5 text-purple-600" />
                     </div>
-                    <h2 className="text-lg font-semibold text-gray-900">Webhook Scheduled Messages</h2>
+                    <h2 className="text-lg font-semibold text-black">Webhook Scheduled Messages</h2>
                 </div>
                 <Loading message="Loading webhook scheduled messages..." />
             </div>
@@ -143,8 +143,8 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
                         <Webhook className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
-                        <h2 className="text-lg font-semibold text-gray-900">Webhook Scheduled Messages</h2>
-                        <p className="text-sm text-gray-600">Manage messages scheduled via webhooks</p>
+                        <h2 className="text-lg font-semibold text-black">Webhook Scheduled Messages</h2>
+                        <p className="text-sm text-black">Manage messages scheduled via webhooks</p>
                     </div>
                 </div>
                 <Button
@@ -160,8 +160,8 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
             {messages.length === 0 ? (
                 <div className="text-center py-8">
                     <Clock className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                    <p className="text-gray-600">No webhook scheduled messages found</p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-black">No webhook scheduled messages found</p>
+                    <p className="text-sm text-black mt-1">
                         Messages scheduled via webhook endpoints will appear here
                     </p>
                 </div>
@@ -176,7 +176,7 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
                                 // Edit mode
                                 <div className="space-y-3">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        <label className="block text-sm font-medium text-black mb-1">
                                             Message
                                         </label>
                                         <textarea
@@ -187,7 +187,7 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        <label className="block text-sm font-medium text-black mb-1">
                                             Scheduled For
                                         </label>
                                         <input
@@ -237,8 +237,8 @@ const WebhookScheduledMessages: React.FC<WebhookScheduledMessagesProps> = ({ ref
                                                     {message.status}
                                                 </span>
                                             </div>
-                                            <p className="text-gray-900 mb-2 whitespace-pre-wrap">{message.message}</p>
-                                            <div className="text-sm text-gray-600 space-y-1">
+                                            <p className="text-black mb-2 whitespace-pre-wrap">{message.message}</p>
+                                            <div className="text-sm text-black space-y-1">
                                                 <div className="flex items-center">
                                                     <Clock className="w-4 h-4 mr-1" />
                                                     <span>

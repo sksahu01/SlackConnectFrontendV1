@@ -105,15 +105,15 @@ const WebhookMessageForm: React.FC<WebhookMessageFormProps> = ({ onMessageSent }
                     <Webhook className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                    <h2 className="text-lg font-semibold text-gray-900">Send Webhook Message</h2>
-                    <p className="text-sm text-gray-600">Send messages directly via webhook endpoints (no authentication required)</p>
+                    <h2 className="text-lg font-semibold text-black">Send Webhook Message</h2>
+                    <p className="text-sm text-black">Send messages directly via webhook endpoints (no authentication required)</p>
                 </div>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Message Content */}
                 <div>
-                    <label htmlFor="webhook-message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="webhook-message" className="block text-sm font-medium text-black mb-2">
                         Message Content
                     </label>
                     <textarea
@@ -137,7 +137,7 @@ const WebhookMessageForm: React.FC<WebhookMessageFormProps> = ({ onMessageSent }
                             {...register('is_scheduled')}
                             className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
                         />
-                        <label htmlFor="webhook-schedule" className="flex items-center text-sm font-medium text-gray-700">
+                        <label htmlFor="webhook-schedule" className="flex items-center text-sm font-medium text-black">
                             <Clock className="w-4 h-4 mr-1" />
                             Schedule for later
                         </label>
@@ -145,7 +145,7 @@ const WebhookMessageForm: React.FC<WebhookMessageFormProps> = ({ onMessageSent }
 
                     {isScheduled && (
                         <div>
-                            <label htmlFor="webhook-scheduled-for" className="block text-sm font-medium text-gray-700 mb-2">
+                            <label htmlFor="webhook-scheduled-for" className="block text-sm font-medium text-black mb-2">
                                 Schedule Date & Time
                             </label>
                             <input

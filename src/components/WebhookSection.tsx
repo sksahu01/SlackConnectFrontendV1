@@ -11,7 +11,7 @@ interface WebhookSectionProps {
 }
 
 const WebhookSection: React.FC<WebhookSectionProps> = ({ onMessageSent }) => {
-    const [activeTab, setActiveTab] = useState<'send' | 'test' | 'scheduled'>('send');
+    const [activeTab, setActiveTab] = useState<'send' | 'scheduled' | 'test' | 'docs'>('send');
     const [isExpanded, setIsExpanded] = useState(false);
     const [refreshTrigger, setRefreshTrigger] = useState(0);
 
@@ -33,8 +33,8 @@ const WebhookSection: React.FC<WebhookSectionProps> = ({ onMessageSent }) => {
                             <Webhook className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                            <h2 className="text-lg font-semibold text-gray-900">Webhook Integration</h2>
-                            <p className="text-sm text-gray-600">Send messages via webhooks without authentication</p>
+                            <h2 className="text-lg font-semibold text-black">Webhook Integration</h2>
+                            <p className="text-sm text-black">Send messages via webhooks without authentication</p>
                         </div>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -58,32 +58,42 @@ const WebhookSection: React.FC<WebhookSectionProps> = ({ onMessageSent }) => {
                         <button
                             onClick={() => setActiveTab('send')}
                             className={`flex-1 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === 'send'
-                                    ? 'border-purple-500 text-purple-600 bg-purple-50'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                                ? 'border-purple-500 text-black bg-purple-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
                                 }`}
                         >
                             <Webhook className="w-4 h-4 inline mr-2" />
                             Send Message
                         </button>
                         <button
+                            onClick={() => setActiveTab('scheduled')}
+                            className={`flex-1 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === 'scheduled'
+                                ? 'border-green-500 text-black bg-green-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
+                                }`}
+                        >
+                            <Calendar className="w-4 h-4 inline mr-2" />
+                            Scheduled Messages
+                        </button>
+                        <button
                             onClick={() => setActiveTab('test')}
                             className={`flex-1 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === 'test'
-                                    ? 'border-blue-500 text-blue-600 bg-blue-50'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                                ? 'border-blue-500 text-black bg-blue-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
                                 }`}
                         >
                             <TestTube className="w-4 h-4 inline mr-2" />
                             Test Webhook
                         </button>
                         <button
-                            onClick={() => setActiveTab('scheduled')}
-                            className={`flex-1 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === 'scheduled'
-                                    ? 'border-green-500 text-green-600 bg-green-50'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                            onClick={() => setActiveTab('docs')}
+                            className={`flex-1 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === 'docs'
+                                ? 'border-orange-500 text-black bg-orange-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
                                 }`}
                         >
-                            <Calendar className="w-4 h-4 inline mr-2" />
-                            Scheduled Messages
+                            <TestTube className="w-4 h-4 inline mr-2" />
+                            API Documentation
                         </button>
                     </div>
 
@@ -91,48 +101,69 @@ const WebhookSection: React.FC<WebhookSectionProps> = ({ onMessageSent }) => {
                     <div className="p-6">
                         {activeTab === 'send' ? (
                             <WebhookMessageForm onMessageSent={handleMessageSent} />
+                        ) : activeTab === 'scheduled' ? (
+                            <WebhookScheduledMessages refreshTrigger={refreshTrigger} />
                         ) : activeTab === 'test' ? (
                             <TestWebhookForm />
                         ) : (
-                            <WebhookScheduledMessages refreshTrigger={refreshTrigger} />
+                            <div className="space-y-6">
+                                <h3 className="text-lg font-semibold text-black">API Documentation</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <div className="bg-white p-4 rounded border">
+                                        <h4 className="font-medium text-black mb-2">Send Immediate</h4>
+                                        <p className="text-sm text-black mb-2">POST /api/messages/webhook/send</p>
+                                        <pre className="text-xs bg-gray-100 p-2 rounded text-black">{`{"message": "Your message"}`}</pre>
+                                    </div>
+                                    <div className="bg-white p-4 rounded border">
+                                        <h4 className="font-medium text-black mb-2">Schedule Message</h4>
+                                        <p className="text-sm text-black mb-2">POST /api/messages/webhook/schedule</p>
+                                        <pre className="text-xs bg-gray-100 p-2 rounded text-black">{`{"message": "...", "scheduled_for": 1691520000}`}</pre>
+                                    </div>
+                                    <div className="bg-white p-4 rounded border">
+                                        <h4 className="font-medium text-black mb-2">Test Webhook</h4>
+                                        <p className="text-sm text-black mb-2">POST /api/test/webhook</p>
+                                        <pre className="text-xs bg-gray-100 p-2 rounded text-black">{`{"webhook_url": "...", "message": "..."}`}</pre>
+                                    </div>
+                                </div>
+                            </div>
                         )}
                     </div>
 
                     {/* API Endpoints Info */}
                     <div className="bg-gray-50 border-t border-gray-200 p-4">
-                        <h4 className="text-sm font-medium text-gray-900 mb-3">Available Webhook Endpoints</h4>
+                        <h4 className="text-sm font-medium text-black mb-3">Available Webhook Endpoints</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
                             <div className="bg-white p-3 rounded border">
-                                <div className="font-medium text-purple-600 mb-1">Send Immediate</div>
-                                <div className="text-gray-600 mb-1">POST /api/messages/webhook/send</div>
-                                <div className="text-gray-500">{`{"message": "Your message"}`}</div>
+                                <div className="font-medium text-black mb-1">Send Immediate</div>
+                                <div className="text-black mb-1">POST /api/messages/webhook/send</div>
+                                <div className="text-black">{`{"message": "Your message"}`}</div>
                             </div>
                             <div className="bg-white p-3 rounded border">
-                                <div className="font-medium text-purple-600 mb-1">Schedule Message</div>
-                                <div className="text-gray-600 mb-1">POST /api/messages/webhook/schedule</div>
-                                <div className="text-gray-500">{`{"message": "...", "scheduled_for": 1691520000}`}</div>
+                                <div className="font-medium text-black mb-1">Schedule Message</div>
+                                <div className="text-black mb-1">POST /api/messages/webhook/schedule</div>
+                                <div className="text-black">{`{"message": "...", "scheduled_for": 1691520000}`}</div>
                             </div>
                             <div className="bg-white p-3 rounded border">
-                                <div className="font-medium text-green-600 mb-1">Get Scheduled</div>
-                                <div className="text-gray-600 mb-1">GET /api/messages/webhook/scheduled</div>
-                                <div className="text-gray-500">No body required</div>
+                                <div className="font-medium text-black mb-1">Get Scheduled</div>
+                                <div className="text-black mb-1">GET /api/messages/webhook/scheduled</div>
+                                <div className="text-black">No body required</div>
                             </div>
                             <div className="bg-white p-3 rounded border">
-                                <div className="font-medium text-blue-600 mb-1">Test Webhook</div>
-                                <div className="text-gray-600 mb-1">POST /api/test/webhook</div>
-                                <div className="text-gray-500">{`{"webhook_url": "...", "message": "..."}`}</div>
+                                <div className="font-medium text-black mb-1">Test Webhook</div>
+                                <div className="text-black mb-1">POST /api/test/webhook</div>
+                                <div className="text-black">{`{"webhook_url": "...", "message": "..."}`}</div>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mt-4">
                             <div className="bg-white p-3 rounded border">
-                                <div className="font-medium text-orange-600 mb-1">Cancel Scheduled</div>
-                                <div className="text-gray-600 mb-1">DELETE /api/messages/webhook/scheduled/:id</div>
-                                <div className="text-gray-500">No body required</div>
+                                <div className="font-medium text-black mb-1">Cancel Scheduled</div>
+                                <div className="text-black mb-1">DELETE /api/messages/webhook/scheduled/:id</div>
+                                <div className="text-black">No body required</div>
                             </div>
                             <div className="bg-white p-3 rounded border">
-                                <div className="font-medium text-orange-600 mb-1">Update Scheduled</div>
-                                <div className="text-gray-600 mb-1">PUT /api/messages/webhook/scheduled/:id</div>
-                                <div className="text-gray-500">{`{"message": "...", "scheduled_for": 1691520000}`}</div>
+                                <div className="font-medium text-black mb-1">Update Scheduled</div>
+                                <div className="text-black mb-1">PUT /api/messages/webhook/scheduled/:id</div>
+                                <div className="text-black">{`{"message": "...", "scheduled_for": 1691520000}`}</div>
                             </div>
                         </div>
                     </div>

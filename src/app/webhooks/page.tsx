@@ -9,7 +9,7 @@ import WebhookScheduledMessages from '@/components/WebhookScheduledMessages';
 import { useRouter } from 'next/navigation';
 
 export default function WebhooksPage() {
-    const [activeTab, setActiveTab] = useState<'send' | 'test' | 'scheduled' | 'docs'>('send');
+    const [activeTab, setActiveTab] = useState<'send' | 'scheduled' | 'test' | 'docs'>('send');
     const [refreshTrigger, setRefreshTrigger] = useState(0);
     const router = useRouter();
 
@@ -36,8 +36,8 @@ export default function WebhooksPage() {
                                 <Webhook className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                                <h1 className="text-lg font-semibold text-gray-900">Webhook Integration</h1>
-                                <p className="text-sm text-gray-500">Send messages via webhooks without authentication</p>
+                                <h1 className="text-lg font-semibold text-black">Webhook Integration</h1>
+                                <p className="text-sm text-black">Send messages via webhooks without authentication</p>
                             </div>
                         </div>
                     </div>
@@ -52,38 +52,38 @@ export default function WebhooksPage() {
                         <button
                             onClick={() => setActiveTab('send')}
                             className={`flex-1 px-6 py-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'send'
-                                    ? 'border-purple-500 text-purple-600 bg-purple-50'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                                ? 'border-purple-500 text-black bg-purple-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
                                 }`}
                         >
                             <Webhook className="w-4 h-4 inline mr-2" />
                             Send Webhook Message
                         </button>
                         <button
-                            onClick={() => setActiveTab('test')}
-                            className={`flex-1 px-6 py-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'test'
-                                    ? 'border-blue-500 text-blue-600 bg-blue-50'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
-                                }`}
-                        >
-                            <ExternalLink className="w-4 h-4 inline mr-2" />
-                            Test External Webhook
-                        </button>
-                        <button
                             onClick={() => setActiveTab('scheduled')}
                             className={`flex-1 px-6 py-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'scheduled'
-                                    ? 'border-orange-500 text-orange-600 bg-orange-50'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                                ? 'border-orange-500 text-black bg-orange-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
                                 }`}
                         >
                             <Calendar className="w-4 h-4 inline mr-2" />
                             Scheduled Messages
                         </button>
                         <button
+                            onClick={() => setActiveTab('test')}
+                            className={`flex-1 px-6 py-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'test'
+                                ? 'border-blue-500 text-black bg-blue-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
+                                }`}
+                        >
+                            <ExternalLink className="w-4 h-4 inline mr-2" />
+                            Test External Webhook
+                        </button>
+                        <button
                             onClick={() => setActiveTab('docs')}
                             className={`flex-1 px-6 py-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'docs'
-                                    ? 'border-green-500 text-green-600 bg-green-50'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                                ? 'border-green-500 text-black bg-green-50'
+                                : 'border-transparent text-black hover:text-black hover:bg-gray-50'
                                 }`}
                         >
                             <ExternalLink className="w-4 h-4 inline mr-2" />
@@ -97,19 +97,19 @@ export default function WebhooksPage() {
                             <WebhookMessageForm onMessageSent={handleMessageSent} />
                         )}
 
-                        {activeTab === 'test' && (
-                            <TestWebhookForm />
-                        )}
-
                         {activeTab === 'scheduled' && (
                             <WebhookScheduledMessages refreshTrigger={refreshTrigger} />
+                        )}
+
+                        {activeTab === 'test' && (
+                            <TestWebhookForm />
                         )}
 
                         {activeTab === 'docs' && (
                             <div className="space-y-6">
                                 <div>
-                                    <h2 className="text-xl font-semibold text-gray-900 mb-4">API Documentation</h2>
-                                    <p className="text-gray-600 mb-6">
+                                    <h2 className="text-xl font-semibold text-black mb-4">API Documentation</h2>
+                                    <p className="text-black mb-6">
                                         Use these endpoints to integrate SlackConnect with your applications and services.
                                     </p>
                                 </div>
@@ -118,7 +118,7 @@ export default function WebhooksPage() {
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                     {/* Send Immediate Message */}
                                     <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-                                        <h3 className="text-lg font-semibold text-purple-900 mb-3">Send Immediate Message</h3>
+                                        <h3 className="text-lg font-semibold text-black mb-3">Send Immediate Message</h3>
                                         <div className="space-y-3">
                                             <div>
                                                 <span className="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2 py-1 rounded">
@@ -129,7 +129,7 @@ export default function WebhooksPage() {
                                                 </code>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Request Body:</h4>
+                                                <h4 className="font-medium text-black mb-2">Request Body:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "message": "Your message content here"
@@ -137,7 +137,7 @@ export default function WebhooksPage() {
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Example Response:</h4>
+                                                <h4 className="font-medium text-black mb-2">Example Response:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "success": true,
@@ -150,7 +150,7 @@ export default function WebhooksPage() {
 
                                     {/* Schedule Message */}
                                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                                        <h3 className="text-lg font-semibold text-blue-900 mb-3">Schedule Message</h3>
+                                        <h3 className="text-lg font-semibold text-black mb-3">Schedule Message</h3>
                                         <div className="space-y-3">
                                             <div>
                                                 <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">
@@ -161,7 +161,7 @@ export default function WebhooksPage() {
                                                 </code>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Request Body:</h4>
+                                                <h4 className="font-medium text-black mb-2">Request Body:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "message": "Your message content",
@@ -170,7 +170,7 @@ export default function WebhooksPage() {
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Example Response:</h4>
+                                                <h4 className="font-medium text-black mb-2">Example Response:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "success": true,
@@ -187,7 +187,7 @@ export default function WebhooksPage() {
 
                                     {/* Test Webhook */}
                                     <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                                        <h3 className="text-lg font-semibold text-green-900 mb-3">Test External Webhook</h3>
+                                        <h3 className="text-lg font-semibold text-black mb-3">Test External Webhook</h3>
                                         <div className="space-y-3">
                                             <div>
                                                 <span className="inline-block bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">
@@ -198,7 +198,7 @@ export default function WebhooksPage() {
                                                 </code>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Request Body:</h4>
+                                                <h4 className="font-medium text-black mb-2">Request Body:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "webhook_url": "https://hooks.slack.com/...",
@@ -207,7 +207,7 @@ export default function WebhooksPage() {
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Example Response:</h4>
+                                                <h4 className="font-medium text-black mb-2">Example Response:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "success": true,
@@ -220,7 +220,7 @@ export default function WebhooksPage() {
 
                                     {/* Get Scheduled Messages */}
                                     <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-                                        <h3 className="text-lg font-semibold text-orange-900 mb-3">Get Scheduled Messages</h3>
+                                        <h3 className="text-lg font-semibold text-black mb-3">Get Scheduled Messages</h3>
                                         <div className="space-y-3">
                                             <div>
                                                 <span className="inline-block bg-orange-100 text-orange-800 text-xs font-medium px-2 py-1 rounded">
@@ -231,10 +231,10 @@ export default function WebhooksPage() {
                                                 </code>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">No request body required</h4>
+                                                <h4 className="font-medium text-black mb-2">No request body required</h4>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Example Response:</h4>
+                                                <h4 className="font-medium text-black mb-2">Example Response:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "success": true,
@@ -265,7 +265,7 @@ export default function WebhooksPage() {
                                                 </code>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Request Body:</h4>
+                                                <h4 className="font-medium text-black mb-2">Request Body:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "message": "Updated message",
@@ -274,7 +274,7 @@ export default function WebhooksPage() {
                                                 </pre>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Example Response:</h4>
+                                                <h4 className="font-medium text-black mb-2">Example Response:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "success": true,
@@ -298,10 +298,10 @@ export default function WebhooksPage() {
                                                 </code>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">No request body required</h4>
+                                                <h4 className="font-medium text-black mb-2">No request body required</h4>
                                             </div>
                                             <div>
-                                                <h4 className="font-medium text-gray-900 mb-2">Example Response:</h4>
+                                                <h4 className="font-medium text-black mb-2">Example Response:</h4>
                                                 <pre className="bg-white p-3 rounded border text-sm overflow-x-auto">
                                                     {`{
   "success": true,
@@ -314,7 +314,7 @@ export default function WebhooksPage() {
 
                                     {/* cURL Examples */}
                                     <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                                        <h3 className="text-lg font-semibold text-gray-900 mb-3">cURL Examples</h3>
+                                        <h3 className="text-lg font-semibold text-black mb-3">cURL Examples</h3>
                                         <div className="space-y-4">
                                             <div>
                                                 <h4 className="font-medium text-gray-700 mb-2">Send immediate message:</h4>

@@ -63,15 +63,15 @@ const TestWebhookForm: React.FC = () => {
                     <TestTube className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                    <h2 className="text-lg font-semibold text-gray-900">Test Webhook</h2>
-                    <p className="text-sm text-gray-600">Test any webhook URL with a custom message</p>
+                    <h2 className="text-lg font-semibold text-black">Test Webhook</h2>
+                    <p className="text-sm text-black">Test any webhook URL with a custom message</p>
                 </div>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Webhook URL */}
                 <div>
-                    <label htmlFor="webhook-url" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="webhook-url" className="block text-sm font-medium text-black mb-2">
                         Webhook URL
                     </label>
                     <input
@@ -88,7 +88,7 @@ const TestWebhookForm: React.FC = () => {
 
                 {/* Test Message */}
                 <div>
-                    <label htmlFor="test-message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="test-message" className="block text-sm font-medium text-black mb-2">
                         Test Message
                     </label>
                     <textarea
