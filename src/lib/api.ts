@@ -181,6 +181,53 @@ class ApiClient {
     });
   }
 
+  // Webhook methods (no authentication required)
+  public async sendWebhookMessage(data: { message: string }): Promise<ApiResponse> {
+    return this.request({
+      method: 'POST',
+      url: '/messages/webhook/send',
+      data,
+    });
+  }
+
+  public async scheduleWebhookMessage(data: { message: string; scheduled_for: number }): Promise<ApiResponse> {
+    return this.request({
+      method: 'POST',
+      url: '/messages/webhook/schedule',
+      data,
+    });
+  }
+
+  public async getWebhookScheduledMessages(): Promise<ApiResponse> {
+    return this.request({
+      method: 'GET',
+      url: '/messages/webhook/scheduled',
+    });
+  }
+
+  public async cancelWebhookScheduledMessage(messageId: string): Promise<ApiResponse> {
+    return this.request({
+      method: 'DELETE',
+      url: `/messages/webhook/scheduled/${messageId}`,
+    });
+  }
+
+  public async updateWebhookScheduledMessage(messageId: string, data: { message?: string; scheduled_for?: number }): Promise<ApiResponse> {
+    return this.request({
+      method: 'PUT',
+      url: `/messages/webhook/scheduled/${messageId}`,
+      data,
+    });
+  }
+
+  public async testWebhook(data: { webhook_url: string; message: string }): Promise<ApiResponse> {
+    return this.request({
+      method: 'POST',
+      url: '/test/webhook',
+      data,
+    });
+  }
+
   // Health check
   public async healthCheck(): Promise<ApiResponse> {
     return this.request({

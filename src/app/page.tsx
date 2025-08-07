@@ -7,6 +7,7 @@ import ConnectSlack from '@/components/ConnectSlack';
 import Layout from '@/components/Layout';
 import MessageForm from '@/components/MessageForm';
 import ScheduledMessages from '@/components/ScheduledMessages';
+import WebhookSection from '@/components/WebhookSection';
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -52,6 +53,11 @@ export default function Home() {
           <div>
             <ScheduledMessages refreshTrigger={refreshTrigger} />
           </div>
+        </div>
+
+        {/* Webhook Integration Section */}
+        <div className="mt-8">
+          <WebhookSection onMessageSent={handleMessageSent} />
         </div>
 
         {/* Additional Info */}

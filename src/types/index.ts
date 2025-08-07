@@ -44,6 +44,21 @@ export interface ScheduleMessageRequest {
   scheduled_for: number;
 }
 
+// Webhook Request types
+export interface WebhookSendRequest {
+  message: string;
+}
+
+export interface WebhookScheduleRequest {
+  message: string;
+  scheduled_for: number;
+}
+
+export interface TestWebhookRequest {
+  webhook_url: string;
+  message: string;
+}
+
 // API Response types
 export interface ApiResponse<T = any> {
   success: boolean;
@@ -59,6 +74,17 @@ export interface MessageFormData {
   message: string;
   scheduled_for?: string; // ISO string for date picker
   is_scheduled?: boolean;
+}
+
+export interface WebhookFormData {
+  message: string;
+  is_scheduled?: boolean;
+  scheduled_for?: string; // ISO string for date picker
+}
+
+export interface TestWebhookFormData {
+  webhook_url: string;
+  message: string;
 }
 
 // Auth types
