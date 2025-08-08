@@ -2,6 +2,12 @@
 
 A modern, feature-rich Next.js application for scheduling and managing Slack messages with comprehensive webhook integration. This frontend provides both authenticated (OAuth-based) and non-authenticated (webhook-based) message sending capabilities.
 
+## Screenshots
+![Screenshot 1](./Outputs/screen1.png)
+![Screenshot 2](./Outputs/screen2.png)
+![Screenshot 3](./Outputs/screen3.png)
+
+
 ## 🚀 Features
 
 ### Core Functionality
